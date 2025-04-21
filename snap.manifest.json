@@ -1,0 +1,43 @@
+{
+  "version": "0.1.1",
+  "description": "Allow the MetaMask account to receive email notifications from the Dmail Network.",
+  "proposedName": "Dmail",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmail-core/dmail-snap/tree/main/packages/snap"
+  },
+  "source": {
+    "shasum": "sVCMuzDTwpB5GXzrHQWh67VG5zO/xD7ZutwyK0IlmAE=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "images/dmail.svg",
+        "packageName": "dmail-snap",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_manageState": {},
+    "snap_dialog": {},
+    "snap_notify": {},
+    "endowment:rpc": {
+      "dapps": true,
+      "snaps": false
+    },
+    "endowment:ethereum-provider": {},
+    "endowment:network-access": {},
+    "endowment:cronjob": {
+      "jobs": [
+        {
+          "expression": "0,15,30,45 * * * * ?",
+          "request": {
+            "method": "execute"
+          }
+        }
+      ]
+    }
+  },
+  "platformVersion": "6.18.0",
+  "manifestVersion": "0.1"
+}
