@@ -1,5 +1,5 @@
 import type { OnRpcRequestHandler, OnCronjobHandler } from '@metamask/snaps-sdk';
-import { Box, Text, Bold, Image, Link, Field, Input, Button, Heading } from '@metamask/snaps-sdk/jsx';
+import { Box, Text, Bold, Heading } from '@metamask/snaps-sdk/jsx';
 
 import { DmailAi, MaxTitleSize, MaxContentSize, dealTo } from './utils'
 
@@ -19,52 +19,38 @@ export const onCronjob: OnCronjobHandler = async ({ request }) => {
   
         // Cron jobs can execute any method that is available to the Snap.
         if (res?.success && Array.isArray(res?.data) && res.data.length) {
-          try {
-            // const { data: { message_count } } = res
-            const emails = res.data.slice(0, 5)
-            while (emails.length) {
-              const { sender, recipient, subject, content } = emails.shift()
-             
-              if (typeof content !== 'string') {
-                continue 
-              }
-
-              const title = subject.length > MaxTitleSize ? `${subject.substring(0, MaxTitleSize)}...` : subject
-              const message = content.length > MaxContentSize ? `${content.substring(0, MaxContentSize)}...` : content
-              const me = recipient.includes(DmailAi) ? dealTo(recipient) : recipient
-
-              await snap.request({
-                method: "snap_notify",
-                params: {
-                  type: "inApp",
-                  message: `${sender} sent You(${me}) an email`,
-                  title,
-                  content: (
-                    <Box>
-                      <Text><Bold>Content:</Bold></Text>
-                      <Text>{message}</Text>
-                    </Box>
-                  ),
-                  footerLink: {
-                    href: "https://mail.dmail.ai/inbox",
-                    text: "Reply",
-                  },
-                },
-              })
-              await new Promise((resolve) => setTimeout(resolve, 1000));
+          // const { data: { message_count } } = res
+          const emails = res.data.slice(0, 5)
+          while (emails.length) {
+            const { sender, recipient, subject, content } = emails.shift()
+            
+            if (typeof content !== 'string') {
+              continue 
             }
-          } catch (error) {
-            // return snap.request({
-            //   method: "snap_dialog",
-            //   params: {
-            //     type: "confirmation",
-            //     content: (
-            //       <Box>
-            //         <Text>Error: <Bold>{JSON.stringify(error)}</Bold>.......</Text>
-            //       </Box>
-            //     ),
-            //   },
-            // });
+
+            const title = subject.length > MaxTitleSize ? `${subject.substring(0, MaxTitleSize)}...` : subject
+            const message = content.length > MaxContentSize ? `${content.substring(0, MaxContentSize)}...` : content
+            const me = recipient.includes(DmailAi) ? dealTo(recipient) : recipient
+
+            await snap.request({
+              method: "snap_notify",
+              params: {
+                type: "inApp",
+                message: `${sender} sent You(${me}) an email`,
+                title,
+                content: (
+                  <Box>
+                    <Text><Bold>Content:</Bold></Text>
+                    <Text>{message}</Text>
+                  </Box>
+                ),
+                footerLink: {
+                  href: "https://mail.dmail.ai/inbox",
+                  text: "Reply",
+                },
+              },
+            })
+            await new Promise((resolve) => setTimeout(resolve, 1000));
           }
         }
       }
@@ -74,16 +60,6 @@ export const onCronjob: OnCronjobHandler = async ({ request }) => {
   }
 };
 
-/**
- * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
- *
- * @param args - The request handler args as object.
- * @param args.origin - The origin of the request, e.g., the website that
- * invoked the snap.
- * @param args.request - A validated JSON-RPC request object.
- * @returns The result of `snap_dialog`.
- * @throws If the request method is not valid for this snap.
- */
 export const onRpcRequest: OnRpcRequestHandler = async ({
   origin,
   request,

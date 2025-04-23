@@ -1,16 +1,3 @@
-// export type ContentBaseItem = {
-//   type: string;
-//   value: string;
-// }
-
-// export type ContentLinkItem = {
-//   type: "link";
-//   value: string;
-//   link: string;
-// }
-
-// export type ContentItem = ContentBaseItem | ContentLinkItem;
-
 export const MaxTitleSize = 100
 // max content size 500
 export const MaxContentSize = 480
