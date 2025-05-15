@@ -1533,10 +1533,10 @@
     "@metamask/utils" "^11.0.1"
     readable-stream "3.6.2"
 
-"@metamask/providers@^20.0.0":
-  version "20.0.0"
-  resolved "https://registry.yarnpkg.com/@metamask/providers/-/providers-20.0.0.tgz#78996a9ba9e2a10fb41bb5d7b749dc21a75df62c"
-  integrity sha512-DbTTBAJYGbEQUXOhF/vsmV2Ge8h5RRBKtc+YgeWge5Xa9p1VunaZxTcmQe7XpU0Vs5yHWkbLeZxyxz/571Cn8g==
+"@metamask/providers@^18.3.1":
+  version "18.3.1"
+  resolved "https://registry.npmjs.org/@metamask/providers/-/providers-18.3.1.tgz#b49351134cbe77034db67774cc4ff473e259158c"
+  integrity sha512-4wHCA24KDwq/eVnAu+/+N7BEuMNN63kdN295u8Wkdc76puyig3lJdcGGne+TEjiILG34twr9rjZPOWTCwOUcDg==
   dependencies:
     "@metamask/json-rpc-engine" "^10.0.2"
     "@metamask/json-rpc-middleware-stream" "^8.0.6"
@@ -1744,6 +1744,17 @@
     "@noble/hashes" "^1.7.1"
     luxon "^3.5.0"
 
+"@metamask/snaps-sdk@6.16.0":
+  version "6.16.0"
+  resolved "https://registry.npmjs.org/@metamask/snaps-sdk/-/snaps-sdk-6.16.0.tgz#63d05dbc024e2ee3ed16496b237e61939456cbb7"
+  integrity sha512-Zj4ZE9Ctmr7Qz1Wd92OY07Z00GzcdpUwB3lrtGQOuEb+hplqMdFOziWSzVm89pplx13RJxd8k5IlWj3EmfK0rg==
+  dependencies:
+    "@metamask/key-tree" "^10.0.2"
+    "@metamask/providers" "^18.3.1"
+    "@metamask/rpc-errors" "^7.0.2"
+    "@metamask/superstruct" "^3.1.0"
+    "@metamask/utils" "^11.0.1"
+
 "@metamask/snaps-sdk@^6.15.0", "@metamask/snaps-sdk@^6.17.0", "@metamask/snaps-sdk@^6.17.1", "@metamask/snaps-sdk@^6.22.0":
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/@metamask/snaps-sdk/-/snaps-sdk-6.22.0.tgz#38cd412568a3ce90db64ed52f930999ad9ae02b9"
@@ -1753,17 +1764,6 @@
     "@metamask/providers" "^21.0.0"
     "@metamask/rpc-errors" "^7.0.2"
     "@metamask/superstruct" "^3.2.1"
-    "@metamask/utils" "^11.2.0"
-
-"@metamask/snaps-sdk@~6.18.0":
-  version "6.18.0"
-  resolved "https://registry.yarnpkg.com/@metamask/snaps-sdk/-/snaps-sdk-6.18.0.tgz#eab82b54c8f76363e5d1089e162d5be4303e6442"
-  integrity sha512-RIESsNGJDkrpOCVkLdwoPBI3twH8st3qG4k3lYQ2yu9OC//18mORWiloKhPc61QyrD3l7Doo4D6AsWmSpMxlJQ==
-  dependencies:
-    "@metamask/key-tree" "^10.0.2"
-    "@metamask/providers" "^20.0.0"
-    "@metamask/rpc-errors" "^7.0.2"
-    "@metamask/superstruct" "^3.1.0"
     "@metamask/utils" "^11.2.0"
 
 "@metamask/snaps-simulation@^2.4.1":
