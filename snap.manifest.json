@@ -1,5 +1,5 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Allow the MetaMask account to receive email notifications from the Dmail Network.",
   "proposedName": "Dmail",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "https://github.com/dmail-core/snap"
   },
   "source": {
-    "shasum": "ZI+6h/By978KyNjkFlTFCeZFi1IZOtDpfr70fdvDEvM=",
+    "shasum": "zA+XwyImCgl9VSVNW9xlFQQrZGhSZXjssn7OEjmDNms=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
