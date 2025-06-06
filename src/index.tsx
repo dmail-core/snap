@@ -14,7 +14,7 @@ export const onCronjob: OnCronjobHandler = async ({ request }) => {
       const storedKeys = Array.isArray(storedData?.keys) ? storedData?.keys : []
       if (storedKeys.length) {
         const sKeys = storedKeys.join('_')
-        const response = await fetch(`https://icp.dmailnetwork.ai/dmailServer/api/snap/getMessageList?keys=${sKeys}`);
+        const response = await fetch(`https://icp.dmail.ai/dmailServer/api/snap/getMessageList?keys=${sKeys}`);
         const res = await response.json();
   
         // Cron jobs can execute any method that is available to the Snap.
@@ -45,7 +45,7 @@ export const onCronjob: OnCronjobHandler = async ({ request }) => {
                   </Box>
                 ),
                 footerLink: {
-                  href: "https://mail.dmailnetwork.ai/inbox",
+                  href: "https://mail.dmail.ai/inbox",
                   text: "Reply",
                 },
               },
